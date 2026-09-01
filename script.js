@@ -1,1 +1,5 @@
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const bar = document.getElementById("progressBar");
+window.addEventListener("scroll", () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (h ? (window.scrollY / h) * 100 : 0) + "%";
+});
